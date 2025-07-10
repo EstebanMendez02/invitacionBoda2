@@ -18,7 +18,7 @@
   <div class="container">
     <img src="portada.webp" alt="Copas de brindis" class="img-fluid mb-2" style="max-width: 300px;">
     
-    <p class="mb-2 elegante" style="letter-spacing: 2px;">SAVE THE DATE</p>
+    <p class="mb-2 elegante-hero" style="letter-spacing: 2px;">SAVE THE DATE</p>
     
     <p class="mb-1 cursiva">Javier & María</p>
     
@@ -33,7 +33,7 @@
 <section class="d-flex flex-column align-items-center px-3">
   <div class="reveal container text-center mb-2 col-12 col-md-6">
     <p class="mb-1 elegante">
-      Querido(a) <br><span id="nombreInvitado" class="elegante">Invitado</span>
+      Querido(a) <br><span id="nombreInvitado" class="elegante-hero">Invitado</span>
     </p>
     <p class="text-muted lead mt-4 elegante2">
       Con inmensa alegría, les extendemos una cordial invitación para acompañarnos en uno de los momentos más importantes de nuestras vidas:
@@ -48,7 +48,7 @@
 <!-- Confirmación -->
 <section class="text-center py-5">
   <div class="reveal container">
-    <h3 class="titulo">¿Deseas confirmar tu asistencia?</h3>
+    <h3 class="elegante">¿Deseas confirmar tu asistencia?</h3>
     <p class="mensaje-invitado"></p>
       <div class="d-grid gap-3 col-12 col-md-4 mx-auto">
         <button class="btn btn-elegante btn-primary" id="whatsappButton">Confirmar</button>
@@ -65,66 +65,51 @@
 
 <section class="py-5">
   <div class="container">
-    <h2 class="text-center mb-5 fst-italic">Plan del día</h2>
+    <h2 class="text-center mb-5">Plan del día</h2>
 
-    <div class="timeline position-relative mx-auto" style="max-width: 90%; width: 200px;">
-      <!-- Línea vertical continua -->
-      <div class="timeline-line"></div>
-
+    <div class="timeline mx-auto" style="max-width: 90%; width: 600px; position: relative;">
+      
       <!-- Evento 1 -->
-      <div class="row align-items-start mb-5">
-        <!-- Ícono -->
-        <div class="col-auto d-flex justify-content-center">
-          <div class="timeline-marker">
-            <img src="prueba.webp" alt="Ceremonia">
-          </div>
+      <div class="row mb-5 timeline-event">
+        <!-- Icono -->
+        <div class="col-6 d-flex justify-content-end align-items-center">
+          <img src="civil.png" alt="civil" class="event-icon">
         </div>
-        <!-- Espacio para línea (centrada con CSS) -->
-        <div class="col-auto"></div>
         <!-- Texto -->
-        <div class="col ps-4">
+        <div class="col-6 d-flex flex-column justify-content-center">
           <h5 class="fw-bold mb-0">15:30</h5>
-          <small class="text-muted">Ceremonia</small>
+          <small class="text-muted">Ceremonia Civil</small>
         </div>
       </div>
 
       <!-- Evento 2 -->
-      <div class="row align-items-start mb-5">
-        <div class="col-auto d-flex justify-content-center">
-          <div class="timeline-marker">
-            <img src="prueba.webp" alt="Banquete">
-          </div>
+      <div class="row mb-5 timeline-event">
+        <div class="col-6 d-flex justify-content-end align-items-center">
+          <img src="ceremonia.png" alt="ceremonia" class="event-icon">
         </div>
-        <div class="col-auto"></div>
-        <div class="col ps-4">
+        <div class="col-6 d-flex flex-column justify-content-center">
           <h5 class="fw-bold mb-0">17:30</h5>
-          <small class="text-muted">Banquete</small>
+          <small class="text-muted">Ceremonia Religiosa</small>
         </div>
       </div>
 
       <!-- Evento 3 -->
-      <div class="row align-items-start mb-5">
-        <div class="col-auto d-flex justify-content-center">
-          <div class="timeline-marker">
-            <img src="prueba.webp" alt="Pastel">
-          </div>
+      <div class="row mb-5 timeline-event">
+        <div class="col-6 d-flex justify-content-end align-items-center">
+          <img src="banquete.png" alt="banquete" class="event-icon">
         </div>
-        <div class="col-auto"></div>
-        <div class="col ps-4">
+        <div class="col-6 d-flex flex-column justify-content-center">
           <h5 class="fw-bold mb-0">21:30</h5>
-          <small class="text-muted">Pastel</small>
+          <small class="text-muted">Banquete</small>
         </div>
       </div>
 
       <!-- Evento 4 -->
-      <div class="row align-items-start">
-        <div class="col-auto d-flex justify-content-center">
-          <div class="timeline-marker">
-            <img src="prueba.webp" alt="Fiesta">
-          </div>
+      <div class="row timeline-event">
+        <div class="col-6 d-flex justify-content-end align-items-center">
+          <img src="fiesta.png" alt="Fiesta" class="event-icon">
         </div>
-        <div class="col-auto"></div>
-        <div class="col ps-4">
+        <div class="col-6 d-flex flex-column justify-content-center">
           <h5 class="fw-bold mb-0">23:30</h5>
           <small class="text-muted">Fiesta</small>
         </div>
