@@ -2,11 +2,18 @@ body {
   background-color: #f7f1e6;
 }
 
-.elegante {
+.elegante-hero {
   font-family: "GFS Didot", serif;
   font-weight: 400;
   font-style: normal;
   font-size:3rem;
+}
+
+.elegante {
+  font-family: "GFS Didot", serif;
+  font-weight: 400;
+  font-style: normal;
+  
 }
 
 .cursiva {
@@ -25,33 +32,39 @@ body {
 /* */
 
 .timeline {
+  max-width: 90%;
+  width: 600px;
+  margin: 0 auto;
   position: relative;
 }
 
-.timeline-line {
+.timeline::before {
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 90px; /* ajusta según tamaño del ícono + márgenes */
+  left: 50%;
+  transform: translateX(-50%);
   width: 2px;
-  background-color: #ccc;
+  background-color: black;
   z-index: 0;
 }
 
+.timeline-event {
+  position: relative;
+}
+
 .timeline-marker {
-  width: 48px;
-  height: 48px;
-  border: 2px solid #ccc;
+  width: 12px;
+  height: 12px;
+  background-color: black;
   border-radius: 50%;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1;
   position: relative;
 }
 
-.timeline-marker img {
-  max-width: 24px;
+.event-icon {
+  width: 150px;
   height: auto;
+  
 }
