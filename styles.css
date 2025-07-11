@@ -74,7 +74,7 @@ body {
 .subrayado {
   position: relative;
   display: inline-block; /* importante para que la línea tome el ancho del texto */
-  padding-bottom: 6px; /* espacio entre texto y línea */
+  padding-bottom: 3px; /* espacio entre texto y línea */
 }
 
 .subrayado::after {
@@ -84,7 +84,7 @@ body {
   left: 0;
   transform: translateX(0px);
   width: 100%; /* igual al ancho del texto */
-  height: 4px;
+  height: 2px; /*grosor de la linea */
   background-color: #3e3e3e;
   border-radius: 2px;
 }
@@ -108,3 +108,25 @@ body {
 .cinta-3 { bottom: -10px; left: -10px; transform: rotate(70deg); }
 .cinta-4 { bottom: -10px; right: -10px; transform: rotate(0deg); }
 
+/* colores prohibidos */
+.color-box {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #786951;
+}
+
+.color1 { background-color: #a52a2a }
+.color2 { background-color: #6914b2 }
+.color3 { background-color: #088bde }
+
+/* imagenes en mesa de regalos */
+.gift-icon {
+  height: 75%;         /* o la altura que quieras */
+  object-fit: contain;   /* para que no se deformen */
+  width: 100%;           /* mantiene responsive dentro del col */
+}
+
+
+.gift-icon:hover {
+  transform: scale(1.05);
+}
