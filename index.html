@@ -16,7 +16,7 @@
 <!-- HERO -->
 <section class="text-center py-5">
   <div class="container">
-    <img src="portada.webp" alt="Copas de brindis" class="img-fluid mb-2" style="max-width: 300px;">
+    <img src="images/portada.webp" alt="Copas de brindis" class="img-fluid mb-2" style="max-width: 300px;">
     
     <p class="mb-2 elegante-hero" style="letter-spacing: 2px;">SAVE THE DATE</p>
     
@@ -66,15 +66,16 @@
 <!-- Linea de tiempo -->
 <section class="py-5">
   <div class="container">
-    <h1 class="text-center mb-5 elegante">Plan del día</h1>
-
+    <div class="text-center">
+    <h1 class="mb-5 elegante">Plan del día</h1>
+    </div>
     <div class="timeline mx-auto" style="max-width: 90%; width: 600px; position: relative;">
       
       <!-- Evento 1 -->
       <div class="row mb-5 timeline-event">
         <!-- Icono -->
         <div class="col-6 d-flex justify-content-end align-items-center">
-          <img src="civil.png" alt="civil" class="event-icon">
+          <img src="images/civil.png" alt="civil" class="event-icon">
         </div>
         <!-- Texto -->
         <div class="col-6 d-flex flex-column justify-content-center elegante2">
@@ -86,7 +87,7 @@
       <!-- Evento 2 -->
       <div class="row mb-5 timeline-event">
         <div class="col-6 d-flex justify-content-end align-items-center">
-          <img src="ceremonia.png" alt="ceremonia" class="event-icon">
+          <img src="images/ceremonia.png" alt="ceremonia" class="event-icon">
         </div>
         <div class="col-6 d-flex flex-column justify-content-center elegante2">
           <h5 class="fw-bold mb-0">17:30</h5>
@@ -97,7 +98,7 @@
       <!-- Evento 3 -->
       <div class="row mb-5 timeline-event">
         <div class="col-6 d-flex justify-content-end align-items-center">
-          <img src="banquete.png" alt="banquete" class="event-icon">
+          <img src="images/banquete.png" alt="banquete" class="event-icon">
         </div>
         <div class="col-6 d-flex flex-column justify-content-center elegante2">
           <h5 class="fw-bold mb-0">21:30</h5>
@@ -108,7 +109,7 @@
       <!-- Evento 4 -->
       <div class="row timeline-event">
         <div class="col-6 d-flex justify-content-end align-items-center">
-          <img src="fiesta.png" alt="Fiesta" class="event-icon">
+          <img src="images/fiesta.png" alt="Fiesta" class="event-icon">
         </div>
         <div class="col-6 d-flex flex-column justify-content-center elegante2">
           <h5 class="fw-bold mb-0">23:30</h5>
@@ -121,7 +122,6 @@
 </section>
 
 <!-- detalles PC -->
-
 <section class="py-5 d-none d-md-block">
   <div class="container">
     <h1 class="text-center mb-5 elegante">Detalles</h1>
@@ -140,14 +140,14 @@
       <!-- Mapa -->
       <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start">
         <div class="ratio ratio-4x3" style="width: 100%; max-width: 300px;">
-          <iframe
-            src="https://maps.google.com/maps?q=22.743136850016437,-98.97151307855306&amp;hl=es&amp;z=15&amp;output=embed"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-          ></iframe>
+            <iframe
+              src="https://maps.google.com/maps?q=22.743136850016437,-98.97151307855306&amp;hl=es&amp;z=15&amp;output=embed"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
-      </div>
     </div>
 
       <!-- Evento 2 -->
@@ -208,20 +208,27 @@
     <div class="row mb-5 timeline-event">
       <!-- Texto -->
       <div class="col-12 col-md-6 d-flex flex-column justify-content-start align-items-center align-items-md-end text-center text-md-end elegante2 mb-3 mb-md-0">
-        <h5 class="fw-bold mb-0">Ceremonia Civil</h5>
+        <h5 class="fw-bold mb-0 subrayado">Ceremonia Civil</h5>
         <small class="text-muted">15:30 <br>Parroquia Nuestra Señora de Guadalupe<br>
           Miguel Hidalgo 104, Zona Centro, 89800 Cdad. Mante, Tamps.</small>
       </div>
 
       <!-- Mapa -->
       <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start">
-        <div class="ratio ratio-4x3" style="width: 100%; max-width: 300px;">
-          <iframe
-            src="https://maps.google.com/maps?q=22.743136850016437,-98.97151307855306&amp;hl=es&amp;z=15&amp;output=embed"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-          ></iframe>
+        <div class="mapa-con-cinta position-relative mx-auto" style="max-width: 300px;">
+          <!-- Cintas -->
+          <img src="images/cinta.png" class="cinta cinta-1" alt="">
+          <img src="images/cinta.png" class="cinta cinta-2" alt="">
+          <img src="images/cinta.png" class="cinta cinta-3" alt="">
+          <img src="images/cinta.png" class="cinta cinta-4" alt="">
+          <div style="width: 100%; max-width: 300px;">
+            <iframe
+              src="https://maps.google.com/maps?q=22.743136850016437,-98.97151307855306&amp;hl=es&amp;z=15&amp;output=embed"
+              style="width: 100%; height: 200px; border:0;"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -230,7 +237,7 @@
       <div class="row mb-5 timeline-event">
       <!-- Texto -->
       <div class="col-12 col-md-6 d-flex flex-column justify-content-start align-items-center align-items-md-end text-center text-md-end elegante2 mb-3 mb-md-0">
-        <h5 class="fw-bold mb-0">Ceremonia Religiosa</h5>
+        <h5 class="fw-bold mb-0 subrayado">Ceremonia Religiosa</h5>
         <small class="text-muted">15:30 <br>Parroquia Nuestra Señora de Guadalupe<br>
           Miguel Hidalgo 104, Zona Centro, 89800 Cdad. Mante, Tamps.</small>
       </div>
@@ -252,7 +259,7 @@
     <div class="row mb-5 timeline-event">
       <!-- Texto -->
       <div class="col-12 col-md-6 d-flex flex-column justify-content-start align-items-center align-items-md-end text-center text-md-end elegante2 mb-3 mb-md-0">
-        <h5 class="fw-bold mb-0">Recepción</h5>
+        <h5 class="fw-bold mb-0 subrayado">Recepción</h5>
         <small class="text-muted">21:30<br>Hobby Gran Salon<br>
           José María Morelos 206, Zona Centro, 89800 Cdad. Mante, Tamps.</small>
       </div>
