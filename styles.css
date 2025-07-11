@@ -82,8 +82,8 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  transform: translateX(-10px);
-  width: 110%; /* igual al ancho del texto */
+  transform: translateX(0px);
+  width: 100%; /* igual al ancho del texto */
   height: 4px;
   background-color: #3e3e3e;
   border-radius: 2px;
