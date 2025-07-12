@@ -88,7 +88,7 @@ async function initializeInvitationPage() {
                         btn.style.backgroundColor = newColor;
                         if (btn.id === 'whatsappButton' || btn.id === 'acceptLessButton' || btn.id === 'declineButton') {
                             btn.style.display = 'inline-block'; // Mantener visible el botón que se está procesando o el general
-                            if (btn.id === 'whatsappButton' || btn.id === 'declineButton') { // Solo actualiza el texto del botón presionado
+                            if (btn.id === 'whatsappButton' || btn.id === 'acceptLessButton' || btn.id === 'declineButton') { // Solo actualiza el texto del botón presionado
                                 btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> ${message}`;
                             }
                         }
