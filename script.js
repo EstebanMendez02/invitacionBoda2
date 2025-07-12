@@ -132,7 +132,7 @@ async function initializeInvitationPage() {
                 }
                 // Mostrar mensaje cordial de confirmación
                 if (mensajeBienvenida) {
-                    mensajeBienvenida.nextElementSibling.innerHTML = `<p style="color: green; font-weight: bold;">¡Excelente! Nos vemos en la fiesta.</p>`;
+                    //mensajeBienvenida.nextElementSibling.innerHTML = `<p style="color: green; font-weight: bold;">¡Excelente! Nos vemos en la fiesta.</p>`;
                 }
                 break;
 
@@ -147,7 +147,7 @@ async function initializeInvitationPage() {
                 }
                 // Mostrar mensaje cordial de declinación
                 if (mensajeBienvenida) {
-                    mensajeBienvenida.nextElementSibling.innerHTML = `<p style="color: red; font-weight: bold;">¡Lamentamos que no puedas asistir! Gracias por avisar.</p>`;
+                    mensajeBienvenida.innerHTML = `Lamentamos mucho su ausencia. <br> ¡Gracias por avisar!`;
                 }
                 break;
 
@@ -241,13 +241,13 @@ async function initializeInvitationPage() {
     if (estado === 'CONFIRMADO') {
         manageActionButtons('finalStateConfirmed', "ASISTENCIA CONFIRMADA", '#4CAF50'); // Verde
         if (cordialMessageContainer) {
-            cordialMessageContainer.innerHTML = `<p style="color: green; font-weight: bold;">¡Excelente! Nos vemos en la fiesta.</p>`;
+            mensajeBienvenida.innerHTML = `¡Gracias, <strong>${nombre}</strong>!<br>Has confirmado <strong>${pases}</strong> pase(s).<br>¡Nos vemos en la fiesta! 🎉`;
         }
         return;
     } else if (estado === 'RECHAZADA') {
-        manageActionButtons('finalStateDeclined', "ASISTENCIA RECHAZADA", '#f44336'); // Rojo
+        manageActionButtons('finalStateDeclined', "ASISTENCIA RECHAZADA", '#8B0000'); // Rojo
         if (cordialMessageContainer) {
-            cordialMessageContainer.innerHTML = `<p style="color: red; font-weight: bold;">¡Lamentamos que no puedas asistir! Gracias por avisar.</p>`;
+             mensajeBienvenida.innerHTML = `Lamentamos mucho su ausencia. <br> ¡Gracias por avisar!`;
         }
         return;
     }
@@ -258,33 +258,45 @@ async function initializeInvitationPage() {
 
     // Configurar el botón de Confirmar Asistencia (todos los pases)
     if (whatsappButton) {
-        const mensajeWhatsAppFull = `Confirmo mi asistencia a los XV de Sofia. Soy ${nombre} y tengo ${pases} pases.`;
-        const whatsappLinkFull = `https://wa.me/?text=${encodeURIComponent(mensajeWhatsAppFull)}`;
+    const mensajeWhatsAppFull = `Confirmo mi asistencia a los XV de Sofia. Soy ${nombre} y tengo ${pases} pases.`;
+    const whatsappLinkFull = `https://wa.me/?text=${encodeURIComponent(mensajeWhatsAppFull)}`;
 
-        whatsappButton.onclick = async () => {
-            manageActionButtons('processing', "Confirmando...", '#FFA500'); // Naranja temporal
-            try {
-                const requestUrl = `${WEB_APP_URL}?t=${encodeURIComponent(token)}&confirm=true`;
+    whatsappButton.onclick = async () => {
+        manageActionButtons('processing', "Confirmando...", '#f7f1e6'); // Naranja temporal
+        try {
+            const requestUrl = `${WEB_APP_URL}?t=${encodeURIComponent(token)}&confirm=true`;
 
-                const response = await fetch(requestUrl, { method: 'GET' });
-                const result = await response.json();
+            const response = await fetch(requestUrl, { method: 'GET' });
+            const result = await response.json();
 
-                if (result.success) {
-                    showToast('¡Confirmación exitosa! ' + result.message);
-                    window.open(whatsappLinkFull, '_blank');
-                    manageActionButtons('finalStateConfirmed', "ASISTENCIA CONFIRMADA", '#4CAF50'); // Verde
-                } else {
-                    showToast('Error en la confirmación: ' + result.message, false);
-                    console.error('Error del Apps Script:', result.message);
-                    manageActionButtons('errorState'); // Restaurar botones a estado original
+            if (result.success) {
+                showToast('¡Confirmación exitosa! ' + result.message);
+                window.open(whatsappLinkFull, '_blank');
+
+                manageActionButtons('finalStateConfirmed', "ASISTENCIA CONFIRMADA", '#4CAF50');
+
+                // ✅ Cambiar texto del botón con agradecimiento personalizado
+                if (whatsappButton) {
+                    whatsappButton.textContent = `¡Confirmados ${pases} pase(s)! 🎉`;
                 }
-            } catch (error) {
-                console.error('Error al enviar el registro o procesar la respuesta:', error);
-                showToast('Error inesperado al confirmar.', false);
+
+                // ✅ También podrías cambiar el mensaje cordial si quieres
+                if (mensajeBienvenida) {
+                    mensajeBienvenida.innerHTML = `¡Gracias, <strong>${nombre}</strong>!<br>Has confirmado <strong>${pases}</strong> pase(s).<br>¡Nos vemos en la fiesta! 🎉`;
+                }
+
+            } else {
+                showToast('Error en la confirmación: ' + result.message, false);
+                console.error('Error del Apps Script:', result.message);
                 manageActionButtons('errorState'); // Restaurar botones a estado original
             }
-        };
-    }
+        } catch (error) {
+            console.error('Error al enviar el registro o procesar la respuesta:', error);
+            showToast('Error inesperado al confirmar.', false);
+            manageActionButtons('errorState'); // Restaurar botones a estado original
+        }
+    };
+}
 
     // Configurar el botón "Aceptar menos invitaciones"
     if (acceptLessButton) {
@@ -308,7 +320,7 @@ async function initializeInvitationPage() {
                 return;
             }
 
-            manageActionButtons('processingLessPasses', "Confirmando...", '#FFA500'); // Naranja temporal
+            manageActionButtons('processingLessPasses', "Confirmando...", '#f7f1e6'); // Naranja temporal
 
             try {
                 const requestUrl = `${WEB_APP_URL}?t=${encodeURIComponent(token)}&confirm_less=true&pases_confirmados=${confirmedPases}`;
@@ -321,6 +333,12 @@ async function initializeInvitationPage() {
                     const mensajeWhatsAppLess = `Confirmo mi asistencia a los XV de Sofia. Soy ${currentGuestName} y confirmo ${confirmedPases} pases.`;
                     window.open(`https://wa.me/?text=${encodeURIComponent(mensajeWhatsAppLess)}`, '_blank');
                     manageActionButtons('finalStateConfirmed', "ASISTENCIA CONFIRMADA", '#4CAF50'); // Verde
+                    if (mensajeBienvenida) {
+                        mensajeBienvenida.innerHTML = `!Gracias, <strong> ${currentGuestName} </strong> !<br>Has confirmado <strong> ${confirmedPases} </strong> pase(s).<br>!Nos vemos en la fiesta! 🎉`;
+                    }
+                    if (cordialMessageContainer){
+                        //cordialMessageContainer.innerHTML = `<p style="color: green; font-weight: bold;">¡Tu asistencia está registrada con menos pases!</p>`;
+                    }
                 } else {
                     showToast('Error en la confirmación: ' + result.message, false);
                     console.error('Error del Apps Script:', result.message);
@@ -337,7 +355,7 @@ async function initializeInvitationPage() {
     // Configurar el botón "No podré asistir"
     if (declineButton) {
         declineButton.onclick = async () => {
-            manageActionButtons('processing', "Registrando declinación...", '#FFCC00'); // Amarillo temporal
+            manageActionButtons('processing', "Registrando declinación...", '#f7f1e6'); // Amarillo temporal
             try {
                 const requestUrl = `${WEB_APP_URL}?t=${encodeURIComponent(token)}&decline=true`;
 
@@ -346,7 +364,10 @@ async function initializeInvitationPage() {
 
                 if (result.success) {
                     showToast('Tu declinación ha sido registrada.');
-                    manageActionButtons('finalStateDeclined', "ASISTENCIA RECHAZADA", '#f44336'); // Rojo
+                    manageActionButtons('finalStateDeclined', "ASISTENCIA RECHAZADA", '#8B0000'); // Rojo
+                    if (mensajeBienvenida) {
+                        mensajeBienvenida.innerHTML = `Lamentamos mucho su ausencia. <br> ¡Gracias por avisar!`;
+                    }
                 } else {
                     showToast('Error al registrar la declinación.', false);
                     console.error('Error del Apps Script:', result.message);
