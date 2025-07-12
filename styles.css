@@ -1,3 +1,7 @@
+:root{
+  --negro: #3e3e3e;
+}
+
 body {
   background-color: #f7f1e6;
 }
@@ -85,7 +89,7 @@ body {
   transform: translateX(0px);
   width: 100%; /* igual al ancho del texto */
   height: 2px; /*grosor de la linea */
-  background-color: #3e3e3e;
+  background-color: var(--negro);
   border-radius: 2px;
 }
 
@@ -121,7 +125,7 @@ body {
 
 /* imagenes en mesa de regalos */
 .gift-icon {
-  height: 75%;         /* o la altura que quieras */
+  height: 100%;         /* o la altura que quieras */
   object-fit: contain;   /* para que no se deformen */
   width: 100%;           /* mantiene responsive dentro del col */
 }
@@ -129,4 +133,69 @@ body {
 
 .gift-icon:hover {
   transform: scale(1.05);
+}
+
+
+/* botones */
+
+.btn-elegante {
+  font-family: 'GFS Didot', serif;
+  font-size: 1.1rem;
+  padding: 0.6rem 2rem;
+  border-radius: 2rem;
+  font-weight: normal;
+  transition: all 0.3s ease-in-out;
+  text-transform: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: var(--negro);
+  border: 1px solid var(--negro);
+}
+
+.btn-elegante:hover{
+  background-color: var(--negro);
+  color: #f7f1e6;
+}
+
+/* No puedo asistir (link elegante) */
+.btn-link-elegante {
+  font-family: 'GFS Didot', serif;
+  font-size: 1rem;
+  color: var(--negro);
+  text-decoration: underline;
+  transition: color 0.3s;
+  display: inline-block;
+  margin-top: 1rem;
+}
+.btn-link-elegante:hover {
+  font-size: 1.02rem;
+}
+
+/* input de menos pases */
+
+/* 🎨 Estilo para el input de pases */
+#numPasesInput {
+  font-family: 'GFS Didot', serif;
+  width: 100%;
+  max-width: 120px;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 700px;
+  border: 2px solid #888;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px var(--negro);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  background-color: transparent;
+}
+
+#numPasesInput:focus {
+  outline: none;
+  border-color: var(--negro);
+  box-shadow: 0 0 5px var(--negro);
+}
+
+.mensaje-invitado {
+  font-family: 'GFS Didot', serif;
+  font-size: 1.1rem;
 }
