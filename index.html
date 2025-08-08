@@ -15,30 +15,41 @@
 
 <!--NAVBAR-->
 
-<nav class="navbar navbar-expand-sm fixed-top shadow" style="z-index: 1050;">
+<nav class="navbar navbar-expand-md fixed-top shadow" style="z-index: 1050;">
   <div class="container-fluid">
     <a class="navbar-brand elegante" href="#">J&M</a>
 
-    <ul class="navbar-nav ms-auto d-flex flex-row gap-3">
-      <li class="nav-item">
-        <a class="nav-link elegante2" href="#bienvenida">Bienvenida</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link elegante2" href="#itinerario">Itinerario</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link elegante2" href="#detalles">Ubicaciones</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link elegante2" href="#codigoVestimenta">Vestimenta</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link elegante2" href="#regalos">Mesa de Regalos</a>
-      </li>
-   
-    </ul>
+    <!-- Botón hamburguesa -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menú colapsable -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ms-auto gap-md-3">
+        <li class="nav-item">
+          <a class="nav-link elegante2" href="#bienvenida">Bienvenida</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link elegante2" href="#itinerario">Itinerario</a>
+        </li>
+        <li class="nav-item d-none d-md-block">
+          <a class="nav-link elegante2" href="#detalles">Ubicaciones</a>
+        </li>
+        <li class="nav-item d-block d-md-none">
+          <a class="nav-link elegante2" href="#detallesM">Ubicaciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link elegante2" href="#codigoVestimenta">Vestimenta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link elegante2" href="#regalos">Mesa de Regalos</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
+
 
 
 <!-- HERO -->
@@ -228,7 +239,7 @@
 </section>
 
 <!-- detalles MOVIL -->
-<section class="py-5 d-block d-md-none" id="detalles">
+<section class="py-5 d-block d-md-none" id="detallesM">
   <div class="container">
     <h1 class="text-center mb-5 elegante">Detalles</h1>
       
