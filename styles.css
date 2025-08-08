@@ -24,7 +24,7 @@ body {
   font-family: "Monsieur La Doulaise", cursive;
   font-weight: 500;
   font-style: normal;
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 .elegante2 {
@@ -199,3 +199,20 @@ body {
   font-family: 'GFS Didot', serif;
   font-size: 1.1rem;
 }
+
+/* NAVBAR */
+
+#navbar {
+  transition: top 0.3s ease-in-out;
+}
+
+nav {
+  background-color: rgba(247, 241, 230, 0.3); /* Fondo semitransparente */
+  backdrop-filter: blur(7px);                /* Aplicar el desenfoque */
+  -webkit-backdrop-filter: blur(10px);        /* Compatibilidad con Safari */
+}
+
+html {
+  scroll-padding-top: 20px; /* Ajusta este valor a la altura real de tu navbar */
+}
+
