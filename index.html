@@ -11,10 +11,38 @@
   <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Monsieur+La+Doulaise&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80" tabindex="0">
+
+<!--NAVBAR-->
+
+<nav class="navbar navbar-expand-sm fixed-top shadow" style="z-index: 1050;">
+  <div class="container-fluid">
+    <a class="navbar-brand elegante" href="#">J&M</a>
+
+    <ul class="navbar-nav ms-auto d-flex flex-row gap-3">
+      <li class="nav-item">
+        <a class="nav-link elegante2" href="#bienvenida">Bienvenida</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link elegante2" href="#itinerario">Itinerario</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link elegante2" href="#detalles">Ubicaciones</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link elegante2" href="#codigoVestimenta">Vestimenta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link elegante2" href="#regalos">Mesa de Regalos</a>
+      </li>
+   
+    </ul>
+  </div>
+</nav>
+
 
 <!-- HERO -->
-<section class="text-center py-5">
+<section class="text-center py-5" id="bienvenida">
   <div class="container">
     <img src="images/portada.webp" alt="Copas de brindis" class="img-fluid mb-2" style="max-width: 300px;">
     
@@ -24,12 +52,12 @@
     
     <p class="fs-5 mb-3 elegante">07 | 07 | 26</p>
     
-    <p class="text-muted elegante2">frase corta panochona</p>
+    <p class="text-muted elegante2">frase corta</p>
   </div>
 </section>
 
 <!--BIENVENIDA-->
-<section class="d-flex flex-column align-items-center px-3">
+<section class="d-flex flex-column align-items-center px-3" id="bienvenida">
   <div class="reveal container text-center mb-2 col-12 col-md-6">
     <p class="mb-1 elegante">
       Querido(a) <br><span id="nombreInvitado" class="elegante-hero">Invitado</span>
@@ -64,7 +92,7 @@
 </section>
 
 <!-- Linea de tiempo -->
-<section class="py-5">
+<section class="py-5" id="itinerario">
   <div class="container">
     <div class="text-center">
     <h1 class="mb-5 elegante">Plan del día</h1>
@@ -122,7 +150,7 @@
 </section>
 
 <!-- detalles PC -->
-<section class="py-5 d-none d-md-block">
+<section class="py-5 d-none d-md-block" id="detalles">
   <div class="container">
     <h1 class="text-center mb-5 elegante">Detalles</h1>
 
@@ -200,7 +228,7 @@
 </section>
 
 <!-- detalles MOVIL -->
-<section class="py-5 d-block d-md-none">
+<section class="py-5 d-block d-md-none" id="detalles">
   <div class="container">
     <h1 class="text-center mb-5 elegante">Detalles</h1>
       
@@ -295,7 +323,7 @@
 </section>
 
 <!-- CODIGO DE VESTIMENTA -->
-<section class="py-5">
+<section class="py-5" id="codigoVestimenta">
   <div class="text-center ">
     <h1 class="elegante">Código de Vestimenta</h1>
     <p class="elegante2">Ayudanos a que nuestro día sea inolvidable y especial. <br>Por favor, respeta el código de vestimenta.</p>
@@ -317,7 +345,7 @@
 </section>
 
 <!-- MESA DE REGALOS -->
-<section class="py-5">
+<section class="py-5" id="regalos">
   <h1 class="elegante text-center">Mesa de Regalos</h1>
   <div class="container text-center mb-2 col-12 col-md-6">
     <p class="elegante2 text-center">
