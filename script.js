@@ -415,32 +415,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // NAVBAR
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.getElementById("navbar");
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+    const navLinks = document.querySelectorAll(".navbar-collapse .nav-link");
+    let inactivityTimeout;
 
-  let navbar = document.getElementById("navbar");
-  let inactivityTimeout;
+    function showNavbar() {
+      navbar.style.top = "0";
+    }
 
-  function showNavbar() {
-    navbar.style.top = "0";
-  }
+    function hideNavbar() {
+      navbar.style.top = "-80px"; // ajusta según altura real
+    }
 
-  function hideNavbar() {
-    navbar.style.top = "-80px"; // ajusta según altura de tu navbar
-  }
+    function resetTimer() {
+      showNavbar();
+      clearTimeout(inactivityTimeout);
+      inactivityTimeout = setTimeout(hideNavbar, 3000);
+    }
 
-  function resetTimer() {
-    showNavbar();
-    clearTimeout(inactivityTimeout);
-    inactivityTimeout = setTimeout(hideNavbar, 3000); // 3 segundos de inactividad
-  }
+    // Cierra el menú al hacer clic en un link
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth < 768) {
+          new bootstrap.Collapse(navbarCollapse).hide();
+        }
+      });
+    });
 
-  // Escucha interacciones
-  document.addEventListener("mousemove", resetTimer);
-  document.addEventListener("scroll", resetTimer);
-  document.addEventListener("keydown", resetTimer);
-  document.addEventListener("touchstart", resetTimer);
+    // Cierra el menú si se hace clic fuera de él
+    document.addEventListener("click", e => {
+      if (
+        navbarCollapse.classList.contains("show") &&
+        !navbarCollapse.contains(e.target) &&
+        !e.target.closest(".navbar-toggler")
+      ) {
+        new bootstrap.Collapse(navbarCollapse).hide();
+      }
+    });
 
-  // Inicia temporizador al cargar
-  window.addEventListener("load", () => {
-    resetTimer();
+    // Eventos de actividad
+    ["mousemove", "scroll", "keydown", "touchstart"].forEach(evt => {
+      document.addEventListener(evt, resetTimer);
+    });
+
+    resetTimer(); // inicia
   });
-
